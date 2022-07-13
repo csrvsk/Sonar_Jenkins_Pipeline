@@ -1,4 +1,4 @@
-$folders=Get-ChildItem -Name
+$folders=Get-ChildItem -Directory -Name
 $key="V12_"
 foreach ($folder in $folders) {
 $proname=$key+$folder

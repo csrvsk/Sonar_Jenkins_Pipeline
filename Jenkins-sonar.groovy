@@ -14,8 +14,7 @@ pipeline {
 		stage("Sonar"){
 			steps{
 				script{
-					powershell 'Get-ChildItem -Directory -Name'
-					//powershell './sonar_project_creationscript.ps1' 
+					powershell './sonar_project_creationscript.ps1' 
 				}
 			}
 		}

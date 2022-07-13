@@ -14,7 +14,7 @@ pipeline {
 		stage("Sonar"){
 			steps{
 				script{
-					powershell(returnStatus: true, script: 'sonar_project_creationscript.ps1') 
+					powershell './sonar_project_creationscript.ps1' 
 				}
 			}
 		}

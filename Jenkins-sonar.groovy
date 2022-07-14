@@ -15,7 +15,7 @@ pipeline {
 		stage("Sonar"){
 			steps{
 				script{
-					powershell 'Get-ChildItem * -Include .scannerwork -Recurse'
+					powershell 'Get-Childitem -Include .scannerwork -Recurse -force | Remove-Item -Force -Recurse'
 					//powershell './sonar_project_creationscript.ps1' 
 				}
 			}

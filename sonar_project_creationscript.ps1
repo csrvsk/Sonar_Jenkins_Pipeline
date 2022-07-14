@@ -1,5 +1,5 @@
 $folders=Get-ChildItem -Directory -Name
-$key="V12_"
+$key="V12_AP"
 foreach ($folder in $folders) {
 $proname=$key+$folder
 $contentToAdd = @"

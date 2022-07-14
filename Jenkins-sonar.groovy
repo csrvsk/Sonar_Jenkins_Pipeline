@@ -14,7 +14,8 @@ pipeline {
 		stage("Sonar"){
 			steps{
 				script{
-					powershell './sonar_project_creationscript.ps1' 
+					powershell 'Get-ChildItem sonar-project.properties -Recurse'
+					//powershell './sonar_project_creationscript.ps1' 
 				}
 			}
 		}

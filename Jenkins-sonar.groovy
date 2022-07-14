@@ -6,7 +6,8 @@ pipeline {
 		stage("checkout"){
 			steps{
 				script{
-					powershell 'svn checkout https://cmicsvn.cmic.ca/erp/R12/Development/Trunk/V12/AP . --username ShivaKumar.Vardhamaan@cmic.ca --password Shanmukh@2020'
+					powershell 'HelloWorld'
+					//powershell 'svn checkout https://cmicsvn.cmic.ca/erp/R12/Development/Trunk/V12/AP . --username ShivaKumar.Vardhamaan@cmic.ca --password Shanmukh@2020'
 					//powershell(returnStatus: true, script: 'sonar_project_creationscript.ps1') 
 				}
 			}
@@ -14,7 +15,7 @@ pipeline {
 		stage("Sonar"){
 			steps{
 				script{
-					powershell 'Get-ChildItem sonar-project.properties -Recurse'
+					powershell 'Get-ChildItem * -Include .scannerwork -Recurse'
 					//powershell './sonar_project_creationscript.ps1' 
 				}
 			}

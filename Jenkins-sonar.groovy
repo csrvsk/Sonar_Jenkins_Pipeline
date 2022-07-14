@@ -6,18 +6,14 @@ pipeline {
 		stage("checkout"){
 			steps{
 				script{
-					powershell 'Write-Output "Hello, World!"'
-					//powershell 'svn checkout https://cmicsvn.cmic.ca/erp/R12/Development/Trunk/V12/AP . --username ShivaKumar.Vardhamaan@cmic.ca --password Shanmukh@2020'
-					//powershell(returnStatus: true, script: 'sonar_project_creationscript.ps1') 
+					powershell 'svn checkout https://cmicsvn.cmic.ca/erp/R12/Development/Trunk/V12/AP . --username ShivaKumar.Vardhamaan@cmic.ca --password Shanmukh@2020'					 
 				}
 			}
 		}
 		stage("Sonar"){
 			steps{
 				script{
-					powershell 'Write-Output "Hello, World!"'
-					//powershell 'Get-Childitem -Include .scannerwork -Recurse -force | Remove-Item -Force -Recurse'
-					//powershell './sonar_project_creationscript.ps1' 
+					powershell './sonar_project_creationscript.ps1' 
 				}
 			}
 		}
@@ -30,7 +26,6 @@ pipeline {
 					powershell 'Get-Childitem -Include sonar-project.properties -Recurse -force | Remove-Item -Force -Recurse'
 					powershell 'Get-Childitem -Include sonar_project_creationscript.ps1 -Recurse -force | Remove-Item -Force -Recurse'
 					powershell 'Get-Childitem -Include Jenkins-sonar.groovy -Recurse -force | Remove-Item -Force -Recurse'
-					//powershell './sonar_project_creationscript.ps1' 
 				}
 			}
 		}

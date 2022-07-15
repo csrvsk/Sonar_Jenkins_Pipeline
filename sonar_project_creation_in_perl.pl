@@ -8,7 +8,6 @@ rmtree ".svn";
 rmtree  ".git";
 rmtree ".scannerwork"
 opendir my $dh, $path
-  or die "$0: opendir: $!";
 
 my @dirs = grep {-d "$path/$_" && ! /^\.{1,2}$/} readdir($dh);
 my $name="V12_AP_";

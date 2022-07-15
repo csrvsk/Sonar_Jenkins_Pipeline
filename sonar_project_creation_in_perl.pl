@@ -21,4 +21,5 @@ foreach ( @dirs ) {
 	}
 my $powershell = 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe';
 my $commandin = 'dir';
-$result = `$powershell -command "$commandin"`;
+my $result = `$powershell -command "$commandin"`;
+print "$result";

@@ -13,7 +13,7 @@ pipeline {
 		stage("Sonar"){
 			steps{
 				script{
-					powershell './sonar_project_creationscript.ps1' 
+					powershell 'perl sonar_project_creation_in_perl.pl' 
 				}
 			}
 		}

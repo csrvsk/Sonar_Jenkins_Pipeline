@@ -6,7 +6,7 @@ my $proname;
 my $path = Cwd::cwd();
 rmtree ".svn";
 rmtree  ".git";
-rmtre ".scannerwork"
+rmtree ".scannerwork"
 opendir my $dh, $path
   or die "$0: opendir: $!";
 

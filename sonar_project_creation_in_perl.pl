@@ -1,10 +1,12 @@
 use warnings;
 use strict;
+use File::Path;
 use Cwd qw();
 my $proname;
 my $path = Cwd::cwd();
-print "$path\n";
-
+rmtree ".svn";
+rmtree  ".git";
+rmtre ".scannerwork"
 opendir my $dh, $path
   or die "$0: opendir: $!";
 
@@ -18,6 +20,8 @@ foreach ( @dirs ) {
 	}
 	print FILE "sonar.projectKey=$proname\nsonar.projectName=$proname\nsonar.login=c1566905ddf4a26f5db614f4209262ed73367afb\nsonar.sources=.\nsonar.java.binaries=.\nsonar.inclusions=/$_/**\nsonar.exclusions=Jenkins-sonar.groovy,sonar_project_creationscript.ps1,sonar_project_creation_in_perl.pl,README.md,sonar-project.properties\n";
 	close FILE;
+	my $powershell = 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe';
 	my $commandin = 'sonar-scanner';
-	'$commandin';
+	my $result = `$powershell -command "$commandin"`;
+	print "$result"
 }

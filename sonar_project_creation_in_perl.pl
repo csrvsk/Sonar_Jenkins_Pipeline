@@ -4,10 +4,12 @@ use Cwd qw();
 my $proname;
 my $powershell = 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe';
 my $path = Cwd::cwd();
-my $rmcommand= 'Remove-Item';
-`$powershell -command "$rmcommand .svn"`;
-`$powershell -command "$rmcommand .git"`;
-`$powershell -command "$rmcommand .scannerwork"`;
+my $rmcommand1= 'Get-Childitem -Include .scannerwork -Recurse -force | Remove-Item -Force -Recurse';
+my $rmcommand2= 'Get-Childitem -Include .svn -Recurse -force | Remove-Item -Force -Recurse';
+my $rmcommand3= 'Get-Childitem -Include .git -Recurse -force | Remove-Item -Force -Recurse';
+`$powershell -command "$rmcommand1"`;
+`$powershell -command "$rmcommand2"`;
+`$powershell -command "$rmcommand3"`;
 opendir my $dh, $path
 	or die "$0: opendir: $!";
 	

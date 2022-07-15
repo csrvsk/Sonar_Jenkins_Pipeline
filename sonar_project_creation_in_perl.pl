@@ -16,7 +16,7 @@ foreach ( @dirs ) {
 	unless(open FILE, '>'.$file) {
     		die "\nUnable to create $file\n";
 	}
-	print FILE "sonar.projectKey=$proname\nsonar.projectName=$proname\nsonar.login=c1566905ddf4a26f5db614f4209262ed73367afb\nsonar.sources=.\nsonar.java.binaries=.\nsonar.inclusions=/$_/**\nsonar.exclusions=Jenkins-sonar.groovy,sonar_project_creationscript.ps1,README.md,sonar-project.properties\n";
+	print FILE "sonar.projectKey=$proname\nsonar.projectName=$proname\nsonar.login=c1566905ddf4a26f5db614f4209262ed73367afb\nsonar.sources=.\nsonar.java.binaries=.\nsonar.inclusions=/$_/**\nsonar.exclusions=Jenkins-sonar.groovy,sonar_project_creationscript.ps1,sonar_project_creation_in_perl.pl,README.md,sonar-project.properties\n";
 	close FILE;
 	sonar-scanner;
 }

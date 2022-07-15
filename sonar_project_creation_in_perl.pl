@@ -1,6 +1,5 @@
 use warnings;
 use strict;
-use File::Path;
 use Cwd qw();
 my $proname;
 my $path = Cwd::cwd();

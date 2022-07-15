@@ -2,12 +2,15 @@ use warnings;
 use strict;
 use Cwd qw();
 my $proname;
+my $powershell = 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe';
 my $path = Cwd::cwd();
-rmtree ".svn";
-rmtree  ".git";
-rmtree ".scannerwork"
+my $rmcommand= 'Remove-Item';
+`$powershell -command "$rmcommand .svn"`;
+`$powershell -command "$rmcommand .git"`;
+`$powershell -command "$rmcommand .scannerwork"`;
 opendir my $dh, $path
-
+	or die "$0: opendir: $!";
+	
 my @dirs = grep {-d "$path/$_" && ! /^\.{1,2}$/} readdir($dh);
 my $name="V12_AP_";
 foreach ( @dirs ) {
@@ -18,7 +21,6 @@ foreach ( @dirs ) {
 	}
 	print FILE "sonar.projectKey=$proname\nsonar.projectName=$proname\nsonar.login=c1566905ddf4a26f5db614f4209262ed73367afb\nsonar.sources=.\nsonar.java.binaries=.\nsonar.inclusions=/$_/**\nsonar.exclusions=Jenkins-sonar.groovy,sonar_project_creationscript.ps1,sonar_project_creation_in_perl.pl,README.md,sonar-project.properties\n";
 	close FILE;
-	my $powershell = 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe';
 	my $commandin = 'sonar-scanner';
 	my $result = `$powershell -command "$commandin"`;
 	print "$result"
